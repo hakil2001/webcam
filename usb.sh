@@ -9,7 +9,7 @@ VID="0x0525"
 PID="0xa4a2"
 SERIAL="0123456789"
 MANUF=$(hostname)
-PRODUCT="UVC Gadget"
+PRODUCT="Web Camera"
 BOARD=$(strings /proc/device-tree/model)
 UDC=$(ls /sys/class/udc) # will identify the 'first' UDC
 
@@ -154,7 +154,7 @@ if [ ! -d $GADGET/g3 ]; then
 	echo "OK"
 fi
 
-
+uvc-gadget -c 0 uvc.0
 # Run uvc-gadget with libcamera as a source
-tmux new -d 'uvc-gadget -c 0 uvc.0'
+#tmux new -d 'uvc-gadget -c 0 uvc.0'
 #arecord -D plughw:sndrpigooglevoi,0,0 -f S16_LE -r 44100 | aplay -D plughw:UAC2Gadget,0,0
