@@ -3,8 +3,8 @@
 apt update
 apt full-upgrade -y
 
-echo "dtoverlay=dwc2,dr_mode=otg" | sudo tee -a /boot/firmware/config.txt
-apt -y install git meson libcamera-dev libjpeg-dev
+echo "dtoverlay=dwc2,dr_mode=otg" | sudo tee -a /boot/firmware/config.txt 
+apt -y install git meson libcamera-dev libjpeg-dev tmux
 git clone https://gitlab.freedesktop.org/camera/uvc-gadget.git
 cd uvc-gadget
 
