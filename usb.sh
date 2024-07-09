@@ -154,7 +154,9 @@ if [ ! -d $GADGET/g3 ]; then
 	echo "OK"
 fi
 
-uvc-gadget -c 0 uvc.0
+#uvc-gadget -c 0 uvc.0
 # Run uvc-gadget with libcamera as a source
-#tmux new -d 'uvc-gadget -c 0 uvc.0'
+tmux new -d 'uvc-gadget -c 0 uvc.0'
+arecord -D plughw:sndrpigooglevoi,0,0 -f S16_LE -r 48000 --buffer-size=64 --period-size=16 | aplay -D plughw:UAC2Gadget,0,0 --buffer-size=64 --period-size=16
+
 #arecord -D plughw:sndrpigooglevoi,0,0 -f S16_LE -r 44100 | aplay -D plughw:UAC2Gadget,0,0
